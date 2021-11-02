@@ -15,14 +15,6 @@ Resources:
            ServerSideEncryptionConfiguration:
            - ServerSideEncryptionByDefault:
                 SSEAlgorithm: AES256      
-       LoggingConfiguration:
-           DestinationBucketName: "demoudi462"
-           LogFilePrefix: logs
-       MetricsConfigurations:
-           - Id: EntireBucket
-       Tags:
-           - Key: PROJECT_ID
-             Value: JGE-PHASE2
        NotificationConfiguration:
                 TopicConfigurations: 
                   - Event: s3:ObjectRemoved:*
@@ -55,7 +47,7 @@ Resources:
            Action: "sns:Publish"
            Condition:
              StringEquals:
-               aws:SourceAccount: 982838017915
+               aws:SourceAccount: 806769730776
              ArnLike:
                aws:SourceArn: !Join ['', ['arn:aws:s3:*:*:', s3bucketforjgep52 ]]
            Effect: Allow
